@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Assignment 1</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    <p>
+
+    <p id="numdot"> XXX </p>
+    <button type="button" id="green">Green</button>
+    <button type="button" id="red">Red</button>
+
+    <button type="button" id="clearButton">Clear Canvas</button>
+
+    <p>
+      Drawing Mode:
+    <button type="button" id="pointButton">Squares</button>
+    <button type="button" id="triButton">Triangles</button>
+    <button type="button" id="circleButton">Circles</button>
+
+    <p>
+    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
+    <p>
+    Green <input type="range" min="0" max="100" value="0" class="slider" id="greenSlide">
+    <p>
+    Blue <input type="range" min="0" max="100" value="0" class="slider" id="blueSlide">
+    <p>
+    Shape Size <input type="range" min="5" max="40" value="0" class="slider" id="sizeSlide">
+    <label for="circleSegmentsSlide">(Circles) Segment Count:</label>
+    <input type="range" id="circleSegmentsSlide" min="3" max="50" value="10">
+    <span id="circleSegmentsValue">10</span>  
+
+
+	<p>
+		<b>Reference Sketch:</b><br>
+		<img src="IMG_0891.jpg" width="200">
+		</p>
+		
+	<p>
+		Picture:
+		<button type="button" id="flowerButton">Draw Flower</button>
+		<button type="button" id="animateFlowerButton">Animate Flower</button>
+		<button type="button" id="stopFlowerButton">Stop Flower</button>
+
+	  </p>
+	  
+
+	  <p>
+		The flower picture is drawn with triangles and includes my initials.
+     I drew it first on my IPad and tried my best to translate it into WebGl. 
+     To use, draw flower, animate it, and then stop and clear when painting. 
+	  </p>
+  
+	  
+
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Point.js"></script>
+    <script src="ColoredPoints.js"></script>
+  </body>
+</html>

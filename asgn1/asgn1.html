@@ -11,6 +11,7 @@
   </style>
 </head>
 <body>
+
   <canvas id="webgl" width="400" height="400">
     Please use a browser that supports canvas
   </canvas>
@@ -50,23 +51,31 @@
 
   <p>
     The flower picture is drawn with triangles and includes my initials.
-    I drew it first on my iPad and tried my best to translate it into WebGL.
+    I drew it first on my iPad and translated it into WebGL.
   </p>
 
   <!-- Load libraries first -->
+  <script src="lib/cuon-matrix.js"></script>
   <script src="lib/webgl-utils.js"></script>
   <script src="lib/webgl-debug.js"></script>
   <script src="lib/cuon-utils.js"></script>
 
-  <!-- Load your scripts -->
+  <!-- Load your shape scripts -->
   <script src="Triangle.js"></script>
   <script src="Circle.js"></script>
   <script src="Point.js"></script>
   <script src="ColoredPoints.js"></script>
 
-  <!-- Run main() after all scripts loaded -->
+  <!-- Run main() after everything is loaded -->
   <script>
-    window.onload = function() { main(); }
+    window.onload = function() { 
+      if (typeof main === "function") {
+        main(); 
+      } else {
+        console.error("main() not found! Check ColoredPoints.js");
+      }
+    };
   </script>
+
 </body>
 </html>

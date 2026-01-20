@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Assignment 1</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 1 - Painting</title>
+  <style>
+    body { font-family: sans-serif; }
+    canvas { border: 1px solid black; display: block; margin-bottom: 10px; }
+    button, input { margin: 3px; }
+  </style>
+</head>
+<body>
+  <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports canvas
+  </canvas>
 
-  <body onload="main()">
-    <canvas id="webgl" width="400" height="400">
-    Please use a browser that supports "canvas"
-    </canvas>
-    <p>
+  <p id="numdot"> XXX </p>
 
-    <p id="numdot"> XXX </p>
-    <button type="button" id="green">Green</button>
-    <button type="button" id="red">Red</button>
+  <button type="button" id="green">Green</button>
+  <button type="button" id="red">Red</button>
+  <button type="button" id="clearButton">Clear Canvas</button>
 
-    <button type="button" id="clearButton">Clear Canvas</button>
-
-    <p>
-      Drawing Mode:
+  <p>Drawing Mode:
     <button type="button" id="pointButton">Squares</button>
     <button type="button" id="triButton">Triangles</button>
     <button type="button" id="circleButton">Circles</button>
+  </p>
 
-    <p>
-    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
-    <p>
-    Green <input type="range" min="0" max="100" value="0" class="slider" id="greenSlide">
-    <p>
-    Blue <input type="range" min="0" max="100" value="0" class="slider" id="blueSlide">
-    <p>
-    Shape Size <input type="range" min="5" max="40" value="0" class="slider" id="sizeSlide">
+  <p>Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide"></p>
+  <p>Green <input type="range" min="0" max="100" value="0" class="slider" id="greenSlide"></p>
+  <p>Blue <input type="range" min="0" max="100" value="0" class="slider" id="blueSlide"></p>
+  <p>Shape Size <input type="range" min="5" max="40" value="0" class="slider" id="sizeSlide"></p>
+  <p>
     <label for="circleSegmentsSlide">(Circles) Segment Count:</label>
     <input type="range" id="circleSegmentsSlide" min="3" max="50" value="10">
-    <span id="circleSegmentsValue">10</span>  
+    <span id="circleSegmentsValue">10</span>
+  </p>
 
+  <p><b>Reference Sketch:</b><br>
+    <img src="IMG_0891.jpg" width="200">
+  </p>
 
-	<p>
-		<b>Reference Sketch:</b><br>
-		<img src="IMG_0891.jpg" width="200">
-		</p>
-		
-	<p>
-		Picture:
-		<button type="button" id="flowerButton">Draw Flower</button>
-		<button type="button" id="animateFlowerButton">Animate Flower</button>
-		<button type="button" id="stopFlowerButton">Stop Flower</button>
+  <p>
+    Picture:
+    <button type="button" id="flowerButton">Draw Flower</button>
+    <button type="button" id="animateFlowerButton">Animate Flower</button>
+    <button type="button" id="stopFlowerButton">Stop Flower</button>
+  </p>
 
-	  </p>
-	  
+  <p>
+    The flower picture is drawn with triangles and includes my initials.
+    I drew it first on my iPad and tried my best to translate it into WebGL.
+  </p>
 
-	  <p>
-		The flower picture is drawn with triangles and includes my initials.
-     I drew it first on my IPad and tried my best to translate it into WebGl. 
-     To use, draw flower, animate it, and then stop and clear when painting. 
-	  </p>
-  
-	  
+  <!-- Load libraries first -->
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
 
+  <!-- Load your scripts -->
+  <script src="Triangle.js"></script>
+  <script src="Circle.js"></script>
+  <script src="Point.js"></script>
+  <script src="ColoredPoints.js"></script>
 
-    <script src="../lib/webgl-utils.js"></script>
-    <script src="../lib/webgl-debug.js"></script>
-    <script src="../lib/cuon-utils.js"></script>
-    <script src="Triangle.js"></script>
-    <script src="Circle.js"></script>
-    <script src="Point.js"></script>
-    <script src="ColoredPoints.js"></script>
-  </body>
+  <!-- Run main() after all scripts loaded -->
+  <script>
+    window.onload = function() { main(); }
+  </script>
+</body>
 </html>

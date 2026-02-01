@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2 - Blocky Animal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    canvas {
+      border: 1px solid black;
+      display: block;
+      margin-bottom: 10px;
+    }
+    button, input {
+      margin: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports canvas
+  </canvas>
+
+  <p id="numdot">XXX</p>
+
+
+  <p>
+    Tail Tip <input type="range" min="-45" max="45" value="0" id="tailTipSlide">
+  </p>
+  <p>
+    Tail Mid <input type="range" min="-45" max="45" value="0" id="tailMidSlide">
+  </p>
+
+  <button id="tailAnimOn">Tail Anim ON</button>
+  <button id="tailAnimOff">Tail Anim OFF</button>
+
+  <p>
+    Rotation Around the y-axis (drag mouse for global rotation) <input type="range" min="0" max="360" value="5" class="slider" id="angleSlide">
+  </p>
+
+  <p>
+    Shift-click with cause poke. 
+  </p>
+
+  <p>
+    Name: Valeria Hernandez-Melchor
+  </p>
+  <p>
+    Animal Assignment: Rat
+  </p>
+  <p>
+    Disclaimers: I used the professor's videos to complete this assingment. I also used ChatGPT and the internet 
+    to debug my code as well as figure out how to implement the fucntions. 
+  </p>
+
+
+  <script src="lib/cuon-matrix.js"></script>
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="Triangle.js"></script>
+  <script src="Circle.js"></script>
+  <script src="Point.js"></script>
+  <script src="Cube.js"></script>
+  <script src="Sphere.js"></script>
+  <script src="BlockyAnimal.js"></script>
+
+  <script>
+    window.onload = function() {
+      if (typeof main === "function") {
+        main();
+      } else {
+        console.error("main() not found! Check ColoredPoints.js");
+      }
+    };
+  </script>
+
+</body>
+</html>

@@ -303,13 +303,13 @@ function renderAllShapes() {
   var thighMat = new Matrix4(backCoordinatesMat);
   thighMat.translate(.07, -.07, -.1);
   thighMat.scale(.67, .6, 0.1);
-  drawCube(thighMat, [0.5, 0.5, 0.5, 1.0]);
+  drawCube(thighMat, [0.52, 0.52, 0.52, 1.0]);
   var thighCoordinatesMat = new Matrix4(thighMat);
 
   var calfMat = new Matrix4(thighCoordinatesMat);
   calfMat.translate(1, 0, 0);
   calfMat.scale(0.4, 0.7, 1);
-  drawCube(calfMat, [0.5, 0.5, 0.5, 1.0]);
+  drawCube(calfMat, [0.52, 0.52, 0.52, 1.0]);
   var calfCoordinatesMat = new Matrix4(calfMat);
 
   var footMat = new Matrix4(calfCoordinatesMat);
@@ -320,13 +320,13 @@ function renderAllShapes() {
    var thigh2Mat = new Matrix4(backCoordinatesMat);
   thigh2Mat.translate(.07, -.07,1);
   thigh2Mat.scale(.67, .6, 0.1);
-  drawCube(thigh2Mat, [0.5, 0.5, 0.5, 1.0]);
+  drawCube(thigh2Mat, [0.52, 0.52, 0.52, 1.0]);
   var thigh2CoordinatesMat = new Matrix4(thigh2Mat);
 
   var calf2Mat = new Matrix4(thigh2CoordinatesMat);
   calf2Mat.translate(1, 0, 0);
   calf2Mat.scale(0.4, 0.7, 1);
-  drawCube(calf2Mat, [0.5, 0.5, 0.5, 1.0]);
+  drawCube(calf2Mat, [0.52, 0.52, 0.52, 1.0]);
   var calf2CoordinatesMat = new Matrix4(calf2Mat);
 
   var foot2Mat = new Matrix4(calf2CoordinatesMat);
@@ -351,7 +351,7 @@ function renderAllShapes() {
 
   var tailBaseDrawMat = new Matrix4(tailBaseJointMat);
   tailBaseDrawMat.scale(1.4, 0.06, 0.06);
-  drawCube(tailBaseDrawMat, [0.9, 0.6, 0.6, 1.0]);
+  drawCube(tailBaseDrawMat, [0.85, 0.55, 0.55, 1.0]);
 
   let tailMidJointMat = new Matrix4(tailBaseJointMat);
   tailMidJointMat.translate(1.4, 0, 0);
@@ -360,7 +360,7 @@ function renderAllShapes() {
 
   let tailMidDrawMat = new Matrix4(tailMidJointMat);
   tailMidDrawMat.scale(1, 0.05, 0.05);
-  drawCube(tailMidDrawMat, [0.9, 0.6, 0.6, 1.0]);
+  drawCube(tailMidDrawMat, [0.85, 0.55, 0.55, 1.0]);
 
   let tailTipJointMat = new Matrix4(tailMidJointMat);
   tailTipJointMat.translate(1, 0, 0);
@@ -369,7 +369,7 @@ function renderAllShapes() {
 
   let tailTipDrawMat = new Matrix4(tailTipJointMat);
   tailTipDrawMat.scale(0.8, 0.04, 0.04);
-  drawCube(tailTipDrawMat, [0.9, 0.6, 0.6, 1.0]);
+  drawCube(tailTipDrawMat, [0.85, 0.55, 0.55, 1.0]);
 
 
   var durationMs = performance.now() - startTime;

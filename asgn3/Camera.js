@@ -141,3 +141,47 @@ class Camera {
         return view;
     }
 }
+
+
+Camera.prototype.pitch = function(alpha) {
+    // forward vector = at - eye
+    let f = [
+        this.at.elements[0] - this.eye.elements[0],
+        this.at.elements[1] - this.eye.elements[1],
+        this.at.elements[2] - this.eye.elements[2]
+    ];
+
+    // right vector = up × forward
+    let s = [
+        this.up.elements[1]*f[2] - this.up.elements[2]*f[1],
+        this.up.elements[2]*f[0] - this.up.elements[0]*f[2],
+        this.up.elements[0]*f[1] - this.up.elements[1]*f[0]
+    ];
+
+    // normalize s
+    let len = Math.sqrt(s[0]**2 + s[1]**2 + s[2]**2);
+    s = [s[0]/len, s[1]/len, s[2]/len];
+
+    // rotation matrix around s
+    let rad = alpha * Math.PI / 180;
+    let cosA = Math.cos(rad), sinA = Math.sin(rad);
+
+    // Rodrigues rotation formula: f_rot = f*cosA + (s × f)*sinA + s*(s·f)*(1-cosA)
+    let cross = [
+        s[1]*f[2] - s[2]*f[1],
+        s[2]*f[0] - s[0]*f[2],
+        s[0]*f[1] - s[1]*f[0]
+    ];
+    let dot = s[0]*f[0] + s[1]*f[1] + s[2]*f[2];
+
+    let f_rot = [
+        f[0]*cosA + cross[0]*sinA + s[0]*dot*(1-cosA),
+        f[1]*cosA + cross[1]*sinA + s[1]*dot*(1-cosA),
+        f[2]*cosA + cross[2]*sinA + s[2]*dot*(1-cosA)
+    ];
+
+    // update at
+    this.at.elements[0] = this.eye.elements[0] + f_rot[0];
+    this.at.elements[1] = this.eye.elements[1] + f_rot[1];
+    this.at.elements[2] = this.eye.elements[2] + f_rot[2];
+}

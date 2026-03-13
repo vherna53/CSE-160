@@ -331,18 +331,6 @@ document.getElementById('lightOffButton').onclick = function() {
   renderAllShapes();
 };
 
-document.getElementById('animationYellowOffButton').onclick = function () {
-  g_tailAnimation = true;
-};
-document.getElementById('animationYellowOnButton').onclick = function () {
-  g_tailAnimation = false;
-};
-document.getElementById('animationMagentaOffButton').onclick = function () {
-  g_tailAnimation = true;
-};
-document.getElementById('animationMagentaOnButton').onclick = function () {
-  g_tailAnimation = false;
-};
 
 document.getElementById('spotLightOnButton').onclick = function() {
   g_spotLightOn = true;

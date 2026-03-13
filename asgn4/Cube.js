@@ -208,147 +208,13 @@ class Cube{
     
         drawTriangle3D(allverts);
     } 
-    /*
-    
-    renderfaster(){
-        var rgba = this.color;
+ 
 
-        gl.uniform1i(u_whichTexture, this.textureNum);
-
-        gl.uniform4f(u_FragColor, rgba[0], rgba[1], rgba[2], rgba[3]);
-
-        gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
-
-        if (g_vertexBuffer==null) {
-        initTriangle3D();
-        }
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);  // ⭐ ADD THIS LINE
-
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);  // ⭐ ADD THIS LINE
-
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeVerts32, gl.DYNAMIC_DRAW);
-        
-        gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);  // ⭐ ADD THIS
-        gl.enableVertexAttribArray(a_Position);                        // ⭐ ADD THIS
-        
-        gl.drawArrays(gl.TRIANGLES, 0, 36);
-        
-        
-    }
-    
-    */
-   /*
-    renderfaster() {
-        gl.uniform1i(u_whichTexture, this.textureNum);
-        gl.uniform4f(u_FragColor, this.color[0], this.color[1], this.color[2], this.color[3]);
-        gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
-    
-        // Vertex buffer
-        if (!g_vertexBuffer) g_vertexBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeVerts32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_Position);
-    
-        // UV buffer
-        if (!g_uvBuffer) g_uvBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_uvBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeUVs32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_UV, 2, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_UV);
-    
-        // Draw cube
-        gl.drawArrays(gl.TRIANGLES, 0, 36);
-    }  
-    */
-   /*
-
-
-    renderfaster() {
-        // set which texture
-        gl.uniform1i(u_whichTexture, this.textureNum);
-    
-        // bind the texture
-        if (this.textureNum === 0) {
-            gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, g_skyTexture);
-        } else if (this.textureNum === 1) {
-            gl.activeTexture(gl.TEXTURE1);
-            gl.bindTexture(gl.TEXTURE_2D, g_wallTexture);
-        }
-    
-        // set color and model matrix
-        gl.uniform4f(u_FragColor, this.color[0], this.color[1], this.color[2], this.color[3]);
-        gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
-    
-        // bind vertex buffer
-        if (!g_vertexBuffer) g_vertexBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeVerts32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_Position);
-    
-        // bind UV buffer
-        if (!g_uvBuffer) g_uvBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_uvBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeUVs32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_UV, 2, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_UV);
-    
-        gl.drawArrays(gl.TRIANGLES, 0, 36);
-    }
-    */
-   /*
-
-    renderfaster() {
-        // set which texture
-        gl.uniform1i(u_whichTexture, this.textureNum);
-    
-        // bind the texture
-        if (this.textureNum === 0) {
-            gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, g_skyTexture);
-        } else if (this.textureNum === 1) {
-            gl.activeTexture(gl.TEXTURE1);
-            gl.bindTexture(gl.TEXTURE_2D, g_wallTexture);
-        }
-    
-        // set color and model matrix
-        gl.uniform4f(u_FragColor, this.color[0], this.color[1], this.color[2], this.color[3]);
-        gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
-    
-        // bind vertex buffer
-        if (!g_vertexBuffer) g_vertexBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeVerts32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_Position);
-    
-        // bind UV buffer
-        if (!g_uvBuffer) g_uvBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_uvBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeUVs32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_UV, 2, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_UV);
-    
-        // bind NORMAL buffer ⭐
-        if (!g_normalBuffer) g_normalBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, g_normalBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, this.cubeNormals32, gl.DYNAMIC_DRAW);
-        gl.vertexAttribPointer(a_Normal, 3, gl.FLOAT, false, 0, 0);
-        gl.enableVertexAttribArray(a_Normal);
-    
-        // draw
-        gl.drawArrays(gl.TRIANGLES, 0, 36);
-    }
-    */
     renderfaster() {
         var rgba = this.color;
     
-        // --- Set which texture ---
         gl.uniform1i(u_whichTexture, this.textureNum);
     
-        // --- Bind the correct texture unit ---
         if (this.textureNum === 0) {
             gl.activeTexture(gl.TEXTURE0);
             gl.bindTexture(gl.TEXTURE_2D, g_skyTexture);
@@ -360,41 +226,33 @@ class Cube{
             gl.bindTexture(gl.TEXTURE_2D, g_cheeseTexture);
         }
     
-        // --- Set color and model matrix ---
         gl.uniform4f(u_FragColor, rgba[0], rgba[1], rgba[2], rgba[3]);
         gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
 
         //here
 
-        this.normalMatrix.setInverseOf(this.matrix);
-this.normalMatrix.transpose();
-gl.uniformMatrix4fv(u_NormalMatrix, false, this.normalMatrix.elements);
+        
     
-        // --- Bind vertex buffer ---
         if (!g_vertexBuffer) g_vertexBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, this.cubeVerts32, gl.DYNAMIC_DRAW);
         gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(a_Position);
     
-        // --- Bind UV buffer ---
         if (!g_uvBuffer) g_uvBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, g_uvBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, this.cubeUVs32, gl.DYNAMIC_DRAW);
         gl.vertexAttribPointer(a_UV, 2, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(a_UV);
     
-        // --- Bind normal buffer ---
         if (!g_normalBuffer) g_normalBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, g_normalBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, this.cubeNormals32, gl.DYNAMIC_DRAW);
         gl.vertexAttribPointer(a_Normal, 3, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(a_Normal);
     
-        // --- Set full texture weight ---
         gl.uniform1f(u_texColorWeight, 1.0);
     
-        // --- Draw all triangles ---
         gl.drawArrays(gl.TRIANGLES, 0, 36);
     }
 

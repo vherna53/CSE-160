@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 3 - Blocky World</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #000; /* Black background */
+      color: #fff;
+      padding: 10px;
+    }
+    canvas {
+      border: 1px solid black;
+      display: block;
+      margin-bottom: 10px;
+      background-color: #222;
+    }
+    button, input {
+      margin: 3px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    #timerDisplay {
+      color: yellow;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    p.instructions {
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body onload="main()">
+
+  <header>
+    <h1>Blocky World</h1>
+    <p>Find the cheese before you starve!</p>
+    <!-- Timer now under the instruction -->
+    <div id="timerDisplay"></div>
+  </header>
+
+  <main>
+    <canvas id="webgl" width="400" height="400">
+      Your browser does not support canvas.
+    </canvas>
+
+    <p id="numdot">XXX</p>
+
+    <button id="normalOn">Show Normals</button>
+    <button id="normalOff">Hide Normals</button>
+
+    <button id="lightOnButton">Turn Light On</button>
+    <button id="lightOffButton">Turn Light Off</button>
+
+    <button id="spotLightOnButton">Spotlight ON</button>
+<button id="spotLightOffButton">Spotlight OFF</button>
+
+    <p>
+
+      Light X <input type="range" min="-250" max="250" value="0" class="slider" id="lightSlideX">
+      Light Y <input type="range" min="-250" max="250" value="100" class="slider" id="lightSlideY">
+      Light Z <input type="range" min="-250" max="250" value="-200" class="slider" id="lightSlideZ">
+    <p>
+
+
+
+
+  
+    <button id="animationYellowOnButton">Yellow Tail Animation ON</button>
+    <button id="animationYellowOffButton">Yellow Tail Animation OFF</button>
+  
+    <button id="animationMagentaOnButton">Magenta Tail Animation ON</button>
+    <button id="animationMagentaOffButton">Magenta Tail Animation OFF</button>
+  
+    <label>Yellow Angle: <input type="range" id="yellowSlide" min="0" max="360" value="0"></label>
+    <label>Magenta Angle: <input type="range" id="magentaSlide" min="0" max="360" value="0"></label>
+  
+    <label>Global Rotation: <input type="range" id="angleSlide" min="0" max="360" value="0"></label>
+
+    <button id="showMapButton">Give up? Reveal Map</button>
+    <canvas id="miniMap" width="256" height="256" style="border:1px solid black; display:none;"></canvas>
+
+    <section>
+      <h2>Instructions</h2>
+      <p class="instructions">
+        W = forward<br>
+        A = left<br>
+        S = backward<br>
+        D = right<br>
+        Q = pan left<br>
+        E = pan right<br>
+        X = add block<br>
+        C = remove block
+      </p>
+    </section>
+
+    <section>
+      <p>Name: Valeria Hernandez-Melchor</p>
+      <p>Animal Assignment: Rat</p>
+      <p>
+        Disclaimers: I used the professor's videos to complete this assignment. 
+        I also used ChatGPT and the internet to debug my code and implement functions. 
+        I particularly struggled with the textures and getting it to run without crashing.
+      </p>
+    </section>
+  </main>
+
+
+  <script src="lib/cuon-matrix.js"></script>
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+
+  <script src="Triangle.js"></script>
+  <script src="Circle.js"></script>
+  <script src="Point.js"></script>
+  <script src="Cube.js"></script>
+  <script src="Sphere.js"></script>
+  <script src="Animal.js"></script>
+  <script src="Camera.js"></script>
+  <script src="World.js"></script>
+
+</body>
+</html>
